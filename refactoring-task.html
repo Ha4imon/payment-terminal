@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function isChar(char) {
+        return typeof char === 'string' && char.length === 1;
+      }
+
+      function getLastIndexChar(mainStr, firstChar, secondChar) {
+        if (!mainStr && typeof mainStr !== 'string') {
+          return -1;
+        }
+
+        let indexFirstChar = isChar(firstChar) ? mainStr.lastIndexOf(firstChar) : -1;
+        let indexSecondChar = isChar(secondChar) ? mainStr.lastIndexOf(secondChar) : -1;
+
+        const maxLastIndexChar = Math.max(indexFirstChar, indexSecondChar);
+
+        return maxLastIndexChar === 0 ? -1 : maxLastIndexChar;
+      }
+
+      console.log(getLastIndexChar('Hello', 'Hel', 'l'));
+    </script>
+  </body>
+</html>
